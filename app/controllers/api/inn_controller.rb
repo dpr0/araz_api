@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class InnController < ApplicationController
+class Api::InnController < ApplicationController
   protect_from_forgery with: :null_session
 
   def show

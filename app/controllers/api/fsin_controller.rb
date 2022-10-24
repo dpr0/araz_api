@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FsinController < ApplicationController
+class Api::FsinController < ApplicationController
   protect_from_forgery with: :null_session
 
   def show

@@ -1,5 +1,3 @@
-require 'csv'
-
 class FsinService
   def initialize(text, page = 1)
     @page = page.to_i
