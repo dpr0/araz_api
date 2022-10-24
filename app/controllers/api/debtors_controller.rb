@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DebtorsController < ApplicationController
+class Api::DebtorsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def show

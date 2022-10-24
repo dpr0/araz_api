@@ -1,10 +1,10 @@
-- /debtors/1 => response.csv ('ФИО', 'Дата рождения', 'Код региона')
-- /fsin/1    => json: [{ fio: '', dt: '' }, {}]
-- /inn/1234567890   => json:
+- /api/debtors/1 => response.csv ('ФИО', 'Дата рождения', 'Код региона')
+- /api/fsin/1    => json: [{ fio: '', dt: '' }, {}]
+- /api/inn/1234567890   => json:
 ```json
 
 ```
-- /arbitr/1234567890 => json:
+- /api/arbitr/1234567890 => json:
 ```json
 [
   {
@@ -17,7 +17,7 @@
   }
 ]
 ```
-- /nalog/1234567890 => json:
+- /api/nalog/1234567890 => json:
 ```json
 {
   "captchaRequired": false,
