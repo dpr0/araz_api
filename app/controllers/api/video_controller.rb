@@ -7,7 +7,7 @@ class Api::VideoController < ApplicationController
   def create
     name = 'all.mp4'
     json = RestClient.get("https://player02.getcourse.ru/player/#{params[:url]}")
-    links = json.body.split("\n").reject { |x| x.size < 30 }
+    links = json.body.split("\n").reject { |x| x.size < 100 }
     links.each_with_index do |link, index|
       file = File.new("video_00_#{index}.ts", 'wb')
       data = RestClient.get(link,{ 'Content-Type' => 'multipart/form-data;'}).body
