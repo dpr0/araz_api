@@ -2,6 +2,7 @@
 
 class Api::VideoController < ApplicationController
   protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
 
   def create
     name = 'all.mp4'
@@ -12,6 +13,7 @@ class Api::VideoController < ApplicationController
       data = RestClient.get(link,{ 'Content-Type' => 'multipart/form-data;'}).body
       file.write data
       file.close
+      print '.'
     end
     files = (0...links.size).map { |i| "video_00_#{i}.ts"}.join(' ')
     system "cat #{ files } > all.txt"
