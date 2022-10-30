@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :fsin,    only: :show
     resources :nalog,   only: :show
     resources :arbitr,  only: :show
+    resources :video,   only: :create
   end
 end
