@@ -10,7 +10,7 @@ class Api::VideoController < ApplicationController
     links = json.body.split("\n").reject { |x| x.size < 100 }
     links.each_with_index do |link, index|
       file = File.new("video_00_#{index}.ts", 'wb')
-      data = RestClient.get(link,{ 'Content-Type' => 'multipart/form-data;'}).body
+      data = RestClient.get(link, 'Content-Type': 'multipart/form-data;').body
       file.write data
       file.close
       print '.'
