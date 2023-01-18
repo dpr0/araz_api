@@ -4,13 +4,13 @@ lock '3.17.1'
 
 server '62.84.122.119', port: 22, roles: %w(app db web), primary: true
 
-set :rbenv_ruby,      '3.0.4'
+set :rbenv_ruby,      '3.0.5'
 set :application,     'araz_api'
 set :repo_url,        'git@github.com:dpr0/araz_api.git'
 set :linked_files,    fetch(:linked_files, []).push('config/cable.yml', 'config/database.yml', 'config/secrets.yml', 'config/master.key', 'config/credentials.yml.enc', '.env')
 set :linked_dirs,     fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'tmp/session_store', 'vendor/bundle', 'public/system', 'public/uploads')
 set :keep_releases,   5
-set :user,            'dimon'
+set :user,            'deploy'
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
