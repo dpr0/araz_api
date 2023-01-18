@@ -56,3 +56,5 @@ dump.rdb
 /config/cred.byebug_history
 entials.yml.enc
 .byebug_history
+all.txt
+/app/controllers/api/video_controller.rb

@@ -2,7 +2,7 @@
 
 lock '3.17.1'
 
-server '51.250.29.90', port: 2222, roles: %w(app db web), primary: true
+server '62.84.122.119', port: 22, roles: %w(app db web), primary: true
 
 set :rbenv_ruby,      '3.0.4'
 set :application,     'araz_api'
@@ -10,7 +10,7 @@ set :repo_url,        'git@github.com:dpr0/araz_api.git'
 set :linked_files,    fetch(:linked_files, []).push('config/cable.yml', 'config/database.yml', 'config/secrets.yml', 'config/master.key', 'config/credentials.yml.enc', '.env')
 set :linked_dirs,     fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'tmp/session_store', 'vendor/bundle', 'public/system', 'public/uploads')
 set :keep_releases,   5
-set :user,            'deploy'
+set :user,            'dimon'
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
@@ -21,7 +21,7 @@ set :ssh_options, {
     keys: %w[~/.ssh/id_rsa],
     forward_agent: true,
     auth_methods: %w[publickey password],
-    port: 2222
+    port: 22
 }
 
 namespace :deploy do
