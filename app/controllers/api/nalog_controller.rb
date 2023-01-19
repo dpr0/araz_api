@@ -3,6 +3,7 @@
 class Api::NalogController < ApplicationController
   protect_from_forgery with: :null_session
 
+  api :GET, '/nalog/:id', 'id is a inn'
   def show
     json = begin
              load
