@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Apipie.configure do |config|
-  config.app_name                = 'araz_api'
+  config.app_name                = 'femida api'
   config.api_base_url            = '/api'
   config.doc_base_url            = '/api/docs'
   # where is your API defined?

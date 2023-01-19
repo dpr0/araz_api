@@ -19,6 +19,7 @@ class Api::VideoController < ApplicationController
     system "cat #{ files } > all.txt"
     system "ffmpeg -i all.txt -c copy -bsf:a aac_adtstoasc #{name}"
     system "rm #{ files }"
+    system "rm all.txt"
     send_data(name)
   end
 end
