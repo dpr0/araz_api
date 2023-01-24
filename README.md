@@ -1,14 +1,5 @@
 # /api/debtors/1 => response.csv ('ФИО', 'Дата рождения', 'Код региона')
 
-[comment]: <> (
-{"result":null,"done":0,"url":"","total_rows_count":"","loaded_pages_count":0,"total_pages_count":0,"error":""}
-Пример:    "lastname": "Навальный",
-"firstname": "Алексей",
-"middlename": "Анатольевич",
-"birthday": "04.06.1976",
-"passport_series_and_number": "4501059531",ИНН: 772323358792
-)
-
 # /api/fsin/николаев+алек => json:
 ```json
 [
@@ -28,13 +19,24 @@
 ```
 # /api/inn/1234567890 => json:
 ```json
-
+{
+  "error":"",
+  "finesList":[
+    {
+      "koapSt":"",
+      "koapText":"",
+      "fineDate":"",
+      "sum":0,
+      "billId":"",
+      "hasDiscount":0,
+      "hasPhoto":0,
+      "divId":0,
+      "discountSum":0,
+      "discountUntil":""
+    }]
+}
 ```
 
-[comment]: <> (
-{"error":"","finesList":[{"koapSt":"","koapText":"","fineDate":"","sum":0,"billId":"","hasDiscount":0,"hasPhoto":0,"divId":0,"discountSum":0,"discountUntil":""}]}
-Тут пример не нужен, тк это и так наш парсер
-)
 # /api/arbitr/1234567890 => json:
 ```json
 [
