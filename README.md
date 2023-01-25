@@ -91,14 +91,19 @@ Arbitr:{"Cases":[{"CaseId":"","CaseNumber":"","CaseType":"","Thirds":[{"inn":"",
 
 [comment]: <> (
 Дисквалификация:
-{"success":0,"dis":[{"number":"","name":"","date_of_birth":"","place_of_birth":"","name_org":"","position":"","article":"","creator":"","court":"","period":"","start_date":"","end_date":""}],"error":""}
+{"success":0,
+"dis":[{"number":"","name":"","date_of_birth":"","place_of_birth":"","name_org":"","position":"","article":"","creator":"","court":"","period":"","start_date":"","end_date":""}],
+"error":""}
 Пример: ИНН - 5205037677
+-
 ИП:
 {"success":0,"ip":[{"ogrn":"","okved":"","okved_name":"","name":""}],"error":""}
 Пример: ИНН - 772830410106
+-
 Учредителей и гендиректоров
 {"success":0,"director":[{"inn":"","name":"","count":0}],"owner":[{"inn":"","name":"","count":0}],"error":""}
 Пример: ИНН - 502419236001
+-
 Ограничение:
 {"success":0,"limit_org":[{"name":"","inn":"","position":"","reason":"","start_date":"","end_date":"","org_name":"","org_inn":""}],"error":""}
 Пример: ИНН - 5205037677
