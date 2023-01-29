@@ -2,8 +2,9 @@
 
 class Api::EgrulController < ApplicationController
   protect_from_forgery with: :null_session
+  URL = 'https://egrul.nalog.ru/'.freeze
 
-  api :GET, '/egrul/:inn', 'Проверка ЕГРЮЛ (https://egrul.nalog.ru/index.html)'
+  api :GET, '/egrul/:inn', "Проверка ЕГРЮЛ (#{URL}index.html)"
   def show
     @errors = []
     token = begin
@@ -26,22 +27,28 @@ class Api::EgrulController < ApplicationController
   private
 
   def token_request
-    RestClient.post('https://egrul.nalog.ru/', "vyp3CaptchaToken=&page=&query=#{params[:id]}&region=&PreventChromeAutocomplete=")
+    RestClient.post(URL, "vyp3CaptchaToken=&page=&query=#{params[:id]}&region=&PreventChromeAutocomplete=")
   end
 
   def inn_request(token)
-    RestClient.get("https://egrul.nalog.ru/search-result/#{token}")
+    RestClient.get("#{URL}search-result/#{token}")
   end
 
   def transform(row)
+    puts row
     {
       start_at: row['r'],
       end_at: row['e'],
+      pdf: "#{URL}vyp-download/#{row['t']}",
       pg: row['pg'],
       tot: row['tot'],
       cnt: row['cnt'],
+      address: row['a'],
+      short_name: row['c'],
+      full_name: row['n'],
+      gendir: row['g'],
       form: row['k'],
-      name: row['n'],
+      kpp: row['p'],
       ogrn: row['o']
     }
   end
