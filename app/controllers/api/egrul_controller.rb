@@ -8,16 +8,16 @@ class Api::EgrulController < ApplicationController
   def show
     @errors = []
     token = begin
-              token_request
+              post_request
             rescue Errno::ECONNRESET => e
-              token_request
+              post_request
             end
 
     data = JSON.parse(token)
     resp = begin
-             inn_request(data['t'])
+             get_req('search-result', data['t'])
            rescue Errno::ECONNRESET => e
-             inn_request(data['t'])
+             get_req('search-result', data['t'])
            end
 
 
@@ -26,16 +26,8 @@ class Api::EgrulController < ApplicationController
 
   private
 
-  def token_request
-    RestClient.post(URL, "vyp3CaptchaToken=&page=&query=#{params[:id]}&region=&PreventChromeAutocomplete=")
-  end
-
-  def inn_request(token)
-    RestClient.get("#{URL}search-result/#{token}")
-  end
-
   def transform(row)
-    puts row
+    get_req('vyp-request', row['t'])
     {
       start_at: row['r'],
       end_at: row['e'],
@@ -51,5 +43,13 @@ class Api::EgrulController < ApplicationController
       kpp: row['p'],
       ogrn: row['o']
     }
+  end
+
+  def get_req(path, token)
+    RestClient.get("#{URL}#{path}/#{token}")
+  end
+
+  def post_request
+    RestClient.post(URL, "vyp3CaptchaToken=&page=&query=#{params[:id]}&region=&PreventChromeAutocomplete=")
   end
 end
